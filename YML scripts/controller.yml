@@ -1,0 +1,22 @@
+kind: Deployemnt
+apiVersion: apps/v1
+metadat:
+   name: loginms-dep
+spec:
+   replicas: 4
+   selector:  ## writing a selector is must in every controller definition.
+     matchLabels:
+       group: developement
+   template: ## is all about pod metadat & spec
+     metadata: ## this is metadata of the pod
+       name: test ## though you define a name controller doesn't considers it, and will create the unique name
+       labels:
+         group: development
+     spec: ## this is spec of the pod
+       containers:
+         - name: cont1
+           image: lerndevops/samplepyapp:v1  #docker repository file location
+           ports:
+            - name: web
+              containerPort: 3000
+

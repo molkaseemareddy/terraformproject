@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+   name: svc1
+spec:
+   type: ClusterIP  ## is a virtual load balancer that forwards the request into multiple backend pods
+   selector: 
+      group: development  ## this selects all the pod having this labels mean we get IP of each pod to this load balancer
+    ports:
+      - port: 80  ## virtual load balancer port
+        target port: 3000 ## port number of process running inside container

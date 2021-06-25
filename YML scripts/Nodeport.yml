@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+   name: np-svc
+spec:
+   type: NodePort  ## will create/publish port on every node in the cluster and also creates a virtual load balancer (cluster Ip)
+   selector: 
+      group: development  ## this selects all the pod having this labels mean we get IP of each pod to this load balancer
+    ports:
+      - port: 80  ## virtual load balancer port
+        target port: 3000 ## port number of process running inside container

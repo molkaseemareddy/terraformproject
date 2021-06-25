@@ -1,0 +1,17 @@
+## we writ
+
+kind: Pod
+apiVersion: v1
+metadata:
+   name: pod3
+   labels: ## defining the labels for pod is must -- every pod should have atleast one label
+     team: development ## here both key & value is your choice
+ spec:
+  containers:
+    - name: cont1
+      image: nginx
+      ports:
+        -name: http
+         containerPort: 80
+        -name: https
+         containerPort: 443
